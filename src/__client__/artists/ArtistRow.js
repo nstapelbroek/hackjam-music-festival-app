@@ -1,17 +1,22 @@
 import React from 'react';
-import {Image, Text, View, StyleSheet} from 'react-native';
+import { Image, Text, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-// TODO: Display Artists Image and Name
 const ArtistRow = ({
   artist
 }) => (
-  <View style={styles.row}>
-  </View>
-);
+    <View style={styles.row}>
+      <Image source={{ uri: artist.artistImageUrl }} style={styles.picture} />
+      <Text style={styles.primaryText}>{artist.name}</Text>
+    </View>
+  );
 
 ArtistRow.propTypes = {
-  artist: PropTypes.object.isRequired
+  artist: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    artistImageUrl: PropTypes.string.isRequired,
+  }).isRequired
 };
 
 export default ArtistRow;
