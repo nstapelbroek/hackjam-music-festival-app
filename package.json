@@ -14,7 +14,7 @@
     "start": "react-native-scripts start",
     "start:server": "nodemon --watch src src/__server__/index.js --exec babel-node",
     "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
+    "android": "adb reverse tcp:3010 tcp:3010 && react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
